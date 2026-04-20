@@ -31,7 +31,6 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap'
     }).addTo(map);
-
   var schools = [
     ["OŠ Vladimir Nazor Zagreb", 45.8150, 15.9819],
     ["OŠ Vladimir Nazor Pazin", 45.2403, 13.9364],
@@ -60,15 +59,6 @@
     ["OŠ Vladimir Nazor Adžamovci", 45.1700, 17.4720],
     ["OŠ Vladimir Nazor Pisarovina", 45.5840, 15.8600]
   ];
-
-  schools.forEach(function(s) {
-    L.marker([s[1], s[2]])
-      .addTo(map)
-      .bindPopup("<strong>" + s[0] + "</strong>");
-  });
-</script>
-    ];
-
     schools.forEach(function(s) {
       L.marker([s[1], s[2]])
         .addTo(map)
