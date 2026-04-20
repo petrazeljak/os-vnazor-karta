@@ -5,24 +5,20 @@
   <title>Interaktivna karta – OŠ Vladimir Nazor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Leaflet CSS -->
+  <!-- ✅ ISPRAVNO učitavanje Leaflet CSS-a -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-o9N1j7kGStpH7rLhGvCkqkN0kPH9LFpBB4E1hZr0Q4M="
-    crossorigin=""
   />
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #ffffff;
     }
     h2 {
       text-align: center;
       margin: 12px 0;
-      font-size: 20px;
     }
     #map {
       width: 100%;
@@ -36,12 +32,8 @@
 <h2>Interaktivna karta osnovnih škola „Vladimir Nazor“</h2>
 <div id="map"></div>
 
-<!-- Leaflet JS -->
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  integrity="sha256-oQm9tLk4H5u7Y6c7YJIzWg6VykBLL8GMDLD9ZhuttWc="
-  crossorigin="">
-</script>
+<!-- ✅ ISPRAVNO učitavanje Leaflet JS-a -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
   // Inicijalizacija karte
@@ -52,7 +44,7 @@
     attribution: '&copy; OpenStreetMap'
   }).addTo(map);
 
-  // Sve škole Vladimir Nazor (26)
+  // ✅ SVIH 26 ŠKOLA
   var schools = [
     ["OŠ Vladimir Nazor Zagreb", 45.8150, 15.9819],
     ["OŠ Vladimir Nazor Pazin", 45.2403, 13.9364],
@@ -82,7 +74,6 @@
     ["Osnovna škola \"Vladimir Nazor\" Pisarovina", 45.5840, 15.8600]
   ];
 
-  // Oznake na karti
   schools.forEach(function(s) {
     L.marker([s[1], s[2]])
       .addTo(map)
