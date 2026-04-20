@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <title>Interaktivna karta OŠ Vladimir Nazor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS (dopušteno u iframe-u na CARNET-u) -->
+  https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 20px;
+    }
+    #map {
+      width: 100%;
+      height: 600px;
+    }
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      padding: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Interaktivna karta osnovnih škola „Vladimir Nazor“</h2>
+
+<div id="map"></div>
+
+<div class="footer">
+  Kliknite na oznaku kako biste vidjeli naziv škole.
+</div>
+
+<!-- Leaflet JS -->
+https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
+
+<script>
+  // Inicijalizacija karte
+  var map = L.map('map').setView([45.2, 16.4], 7);
+
+  // OpenStreetMap podloga (sigurna i dopuštena)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap'
+  }).addTo(map);
+
+  // Popis škola
+  var schools = [
+    ["OŠ Vladimir Nazor Zagreb", 45.8150, 15.9819],
+    ["OŠ Vladimir Nazor Pazin", 45.2403, 13.9364],
+    ["OŠ Vladimir Nazor Krnica (Marčana)", 44.9950, 14.0170],
+    ["OŠ Vladimir Nazor Potpićan", 45.2070, 14.1390],
+    ["OŠ Vladimir Nazor Vrsar", 45.1490, 13.6070],
+    ["OŠ Vladimir Nazor Škabrnja", 44.0890, 15.4540],
+    ["OŠ Vladimir Nazor Neviđane (Pašman)", 43.9540, 15.2740],
+    ["OŠ Vladimir Nazor Postira (Brač)", 43.3750, 16.6300],
+    ["OŠ Vladimir Nazor Ploče", 43.0570, 17.4320],
+    ["OŠ Vladimir Nazor Slavonski Brod", 45.1600, 18.0150],
+    ["OŠ Vladimir Nazor Virovitica", 45.8310, 17.3850],
+    ["OŠ Vladimir Nazor Topusko", 45.2910, 15.9680],
+    ["OŠ Vladimir Nazor Duga Resa", 45.4330, 15.4920],
+    ["OŠ Vladimir Nazor Trenkovo", 45.3030, 17.4020],
+    ["OŠ Vladimir Nazor Komletinci", 45.1460, 18.5630],
+    ["OŠ Vladimir Nazor Budinšćina", 46.1270, 16.3310],
+    ["OŠ Vladimir Nazor Đakovo", 45.3080, 18.4100],
+    ["OŠ Vladimir Nazor Vinkovci", 45.2890, 18.8040],
+    ["OŠ Vladimir Nazor Daruvar", 45.5900, 17.2250],
+    ["OŠ Vladimir Nazor Čepin", 45.5220, 18.5660],
+    ["OŠ Vladimir Nazor Nova Bukovica", 45.6610, 17.3280],
+    ["OŠ Vladimir Nazor Feričanci", 45.5310, 17.9760],
+    ["OŠ Vladimir Nazor Križevci", 46.0210, 16.5420],
+    ["OŠ Vladimir Nazor Sveti Ilija", 46.1990, 16.3030],
+    ["Osnovna škola \"Vladimir Nazor\" Adžamovci", 45.1700, 17.4720],
+    ["Osnovna škola \"Vladimir Nazor\" Pisarovina", 45.5840, 15.8600]
+  ];
+
+  // Dodavanje oznaka
+  schools.forEach(function(school) {
+    L.marker([school[1], school[2]])
+      .addTo(map)
+      .bindPopup("<strong>" + school[0] + "</strong>");
+  });
+</script>
+
+</body>
+</html>
